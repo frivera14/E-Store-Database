@@ -7,7 +7,6 @@ router.get('/', (req, res) => {
   // find all categories
   Category.findAll({
     attributes: [
-      'id',
       'category_name'
     ],
     include: [
@@ -31,7 +30,6 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     },
     attributes: [  
-    'id',
     'category_name'
   ],
   include: [
