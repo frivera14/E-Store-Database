@@ -7,13 +7,8 @@ router.get('/', (req, res) => {
   // find all tags
   Tag.findAll({
     attributes: [
+      'id',
       'tag_name'
-    ],
-    include: [
-      {
-        model: Product,
-        attributes: ['category_id']
-      }
     ]
   })
   .then(dbPostData => res.json(dbPostData))
@@ -30,13 +25,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: ['tag_name'],
-    include: [
-      {
-        model: Product,
-        attributes: ['category_id']
-      }
-    ]
+    attributes: ['tag_name']
   })
   .then(dbPostData => res.json(dbPostData))
   .catch(err => {
