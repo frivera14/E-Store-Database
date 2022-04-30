@@ -17,6 +17,10 @@ router.get('/', (req, res) => {
       {
         model: Category,
         attributes: ['id', 'category_name']
+      },
+      {
+        model: Tag,
+        attributes: ['tag_name']
       }
     ]
   })
@@ -46,6 +50,10 @@ router.get('/:id', (req, res) => {
       {
         model: Category,
         attributes: ['id']
+      },
+      {
+        model: Tag,
+        attributes: ['tag_name']
       }
     ]
   })
@@ -87,6 +95,7 @@ router.post('/', (req, res) => {
       res.status(400).json(err);
     });
 });
+
 
 // update product
 router.put('/:id', (req, res) => {
